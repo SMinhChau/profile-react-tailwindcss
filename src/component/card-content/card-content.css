@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    .card-list {
+        @apply flex cursor-pointer flex-col gap-[24px] rounded-[5px] border-2 border-solid border-bg_card p-3 shadow-inner hover:border-4 sm:w-[100%] md:w-[90%] lg:w-96;
+    }
+    .card-time {
+        @apply text-sm italic;
+    }
+    .card-name {
+        @apply text-xl;
+    }
+    .card-description {
+        @apply text-base;
+    }
+}

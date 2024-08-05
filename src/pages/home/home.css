@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .title {
+    @apply w-[70%] md:w-[100%] text-[30px] text-primary_color font-bold;
+  }
+  .sub-title {
+    @apply text-[30px] text-[#ca8a04] font-bold;
+  }
+}
+.exps-description {
+  @apply w-[100%] md:w-[90%] lg:w-[70%]  text-justify;
+}
+
+.cards {
+  @apply flex flex-row flex-wrap gap-[15px] m-2;
+}
