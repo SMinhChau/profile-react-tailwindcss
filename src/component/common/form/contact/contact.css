@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .form-content {
+    @apply container flex flex-row max-md:flex-col gap-3 mt-5;
+  }
+}
+
+.item-info {
+  @apply flex flex-col basis-2/5;
+}
+
+.item-content {
+  @apply flex flex-col basis-3/5;
+}

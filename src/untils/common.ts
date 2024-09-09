@@ -9,5 +9,5 @@ export const SizesScreen = {
 };
 
 export const formatDateTime = (date: string, type?: string) => {
-  return format(date, type ?? "yyyy/mm/dd");
+  return format(date, type ?? "yyyy/MM/dd");
 };

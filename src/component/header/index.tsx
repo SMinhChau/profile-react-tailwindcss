@@ -1,47 +1,57 @@
-import React, { useMemo } from "react";
-import "./header.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
-import { useWindowSize } from "@/hook/useWindowSize";
-import { SizesScreen } from "@/untils/common";
+import React, { useMemo } from 'react';
+import './header.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { useWindowSize } from '@/hook/useWindowSize';
+import { SizesScreen } from '@/untils/common';
 
-import { AiOutlineMenu } from "react-icons/ai";
+import { AiOutlineMenu } from 'react-icons/ai';
 
 const HeaderMenus = [
-  [1, "Home", "/#info"],
-  [2, "Experiences", "/#experiences"],
-  [3, "Activities", "/activities"],
-  [4, "Projects", "/projects"],
-  [5, "About", "/about"],
+  [1, 'Home', '/#info'],
+  [2, 'Experiences', '/#experiences'],
+  [3, 'Activities', '/activities'],
+  [4, 'Projects', '/projects'],
+  [5, 'About', '/about'],
 ];
 
-const Header = () => {
+type Props = {
+  nonNavbar?: boolean;
+};
+
+const Header: React.FC<Props> = ({ nonNavbar }: Props) => {
   const { width } = useWindowSize();
 
   const renderNavbar = useMemo(() => {
     return (
       <div className="center-box justify-end ">
         {width < SizesScreen.md ? (
-          <div
-            className="icon-menu"
-            aria-controls="mobile-menu"
-            aria-expanded="false"
-          >
-            <AiOutlineMenu />
-          </div>
+          <>
+            {nonNavbar ? (
+              <>
+                <span className="relative pl-4 before:contents-[' '] before:bg-blue_border before:w-[2px] before:h-full before:absolute before:left-0">
+                  <FontAwesomeIcon icon={faUser} className="text-blue-border" />
+                </span>
+              </>
+            ) : (
+              <>
+                <div className="icon-menu" aria-controls="mobile-menu" aria-expanded="false">
+                  <AiOutlineMenu />
+                </div>
+              </>
+            )}
+          </>
         ) : (
           <>
-            <nav className="flex sm:justify-center space-x-4">
-              {HeaderMenus.map(([id, title, url]) => (
-                <a
-                  key={id}
-                  href={url}
-                  className="rounded-lg px-3 py-2 menu-item"
-                >
-                  {title}
-                </a>
-              ))}
-            </nav>
+            {!nonNavbar && (
+              <nav className="flex sm:justify-center space-x-4">
+                {HeaderMenus.map(([id, title, url]) => (
+                  <a key={id} href={url} className="rounded-lg px-3 py-2 menu-item">
+                    {title}
+                  </a>
+                ))}
+              </nav>
+            )}
             <span className="relative pl-4 before:contents-[' '] before:bg-blue_border before:w-[2px] before:h-full before:absolute before:left-0">
               <FontAwesomeIcon icon={faUser} className="text-blue-border" />
             </span>
