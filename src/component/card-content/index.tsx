@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import './card-content.css';
-import { formatDateTime } from '@/untils/common';
-import { ExperiencesType } from '@/untils/content';
+import { formatDateTime } from '@/utils/common';
+import { ExperiencesType } from '@/utils/common';
 import Link from '../common/link';
 import { FaGithub } from 'react-icons/fa';
 import { isToday } from 'date-fns';

@@ -3,7 +3,7 @@ import './header.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { useWindowSize } from '@/hook/useWindowSize';
-import { SizesScreen } from '@/untils/common';
+import { SizesScreen } from '@/utils/common';
 
 import { AiOutlineMenu } from 'react-icons/ai';
 

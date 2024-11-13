@@ -1,10 +1,11 @@
 import HomeContent from '@/component/home-content';
 import './home.css';
 import CardContent from '@/component/card-content';
-import { MyExperiences } from '@/untils/content';
+
 import { useWindowSize } from '@/hook/useWindowSize';
 import { ContactData } from './data';
 import ContactForm from '@/component/common/form/contact';
+import { MyExperiences } from '@/utils/content';
 
 const HomePage = () => {
   const { width } = useWindowSize();
@@ -71,9 +72,9 @@ const HomePage = () => {
 
   return (
     <div className="container fex flex-col">
-      {Information()}
-      {Experiences()}
-      {ContactMe()}
+      <Information />
+      <Experiences />
+      <ContactMe />
     </div>
   );
 };

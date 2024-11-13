@@ -11,8 +11,25 @@ export default {
       bg_card: '#111827',
       bg_card_hover: '#4b5563',
       border_card: '#27272a',
+      bg_main: '#0a0909',
+      text_main: '#4b5563',
+      border_input: '#0f766e',
+      bg_normal: '#222937',
+      success_color: '#1d2c23',
+      error_color: '#683535',
+      warning_color: '#6f7034',
+    },
+    keyframes: {
+      'slide-in': {
+        '0%': { transform: 'translateX(100%)', opacity: 0 },
+        '100%': { transform: 'translateX(0)', opacity: 1 },
+      },
+    },
+    animation: {
+      'slide-in': 'slide-in 0.3s ease-out',
     },
   },
+
   plugins: [],
   darkMode: 'selector',
 };

@@ -3,5 +3,11 @@
 @tailwind utilities;
 
 .info {
-  @apply container;
+  @apply container flex flex-col gap-4;
+}
+.content {
+  @apply flex flex-row gap-3;
+}
+.label {
+  @apply flex basis-[100px] capitalize font-semibold text-lg;
 }
