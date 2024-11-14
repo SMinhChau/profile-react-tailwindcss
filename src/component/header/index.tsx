@@ -1,11 +1,13 @@
 import React, { useMemo } from 'react';
 import './header.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
+
 import { useWindowSize } from '@/hook/useWindowSize';
 import { SizesScreen } from '@/utils/common';
 
 import { AiOutlineMenu } from 'react-icons/ai';
+import { MdOutlineLightMode, MdOutlineNightlightRound } from 'react-icons/md';
+import ToggleMode from '../common/toggle-mode';
 
 const HeaderMenus = [
   [1, 'Home', '/#info'],
@@ -30,7 +32,7 @@ const Header: React.FC<Props> = ({ nonNavbar }: Props) => {
             {nonNavbar ? (
               <>
                 <span className="relative pl-4 before:contents-[' '] before:bg-blue_border before:w-[2px] before:h-full before:absolute before:left-0">
-                  <FontAwesomeIcon icon={faUser} className="text-blue-border" />
+                  <ToggleMode />
                 </span>
               </>
             ) : (
@@ -53,7 +55,7 @@ const Header: React.FC<Props> = ({ nonNavbar }: Props) => {
               </nav>
             )}
             <span className="relative pl-4 before:contents-[' '] before:bg-blue_border before:w-[2px] before:h-full before:absolute before:left-0">
-              <FontAwesomeIcon icon={faUser} className="text-blue-border" />
+              <ToggleMode />
             </span>
           </>
         )}
@@ -63,7 +65,11 @@ const Header: React.FC<Props> = ({ nonNavbar }: Props) => {
 
   return (
     <div className="container min-h-[70px] w-full grid grid-cols-[30%_minmax(70%,_1fr)_100px] border-solid border-b-2 border-blue_border">
-      <div className="center-box text-slate-700"></div>
+      <div className="wrapper-logo flex items-center">
+        <a href="/">
+          <img src="/images/sky-life-logo.png" alt="logo" className="logo" />
+        </a>
+      </div>
       {renderNavbar}
     </div>
   );

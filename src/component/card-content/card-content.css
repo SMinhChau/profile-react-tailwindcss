@@ -5,11 +5,14 @@
 @layer utilities {
   .card-list {
     @apply flex cursor-pointer
-         flex-col gap-[24px] 
-          border-2 border-solid border-bg_card hover:border-[#0f766e] rounded-[20px] p-4 pb-[16px]
-          duration-150 shadow-md shadow-[#082f49] 
-             hover:shadow-[#5eead4] 
-            w-[100%] lg:w-[40%] min-h-[200px];
+        flex-col gap-[24px] 
+        border-[1px] border-solid  dark:border-bg_card 
+        dark:hover:border-[#0f766e] 
+        rounded-[20px] p-4 pb-[16px]
+        duration-150 
+        shadow-md dark:shadow-[#082f49] 
+        hover:shadow-blue_border  dark:hover:shadow-[#5eead4] 
+        w-[100%] lg:w-[40%] min-h-[200px];
   }
   .card-time {
     @apply text-sm italic;

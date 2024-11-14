@@ -41,12 +41,12 @@ const HomePage = () => {
       <HomeContent id="info">
         <div className="information">
           <div className="info-left">
-            <div className="welcome">Hi! Welcome!</div>
-            <div className="info-avatar group">
+            {/* <div className="welcome">Hi! Welcome!</div> */}
+            {/* <div className="info-avatar group">
               <span className="top"></span>
               <span className="bottom"></span>
-              {/* <img src={Images} alt="bg-info" /> */}
-            </div>
+              <img src={Images} alt="bg-info" />
+            </div> */}
           </div>
 
           <div className="info-right">

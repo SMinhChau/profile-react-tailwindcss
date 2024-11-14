@@ -33,6 +33,7 @@
   .form-group .input-item {
     @apply block w-full px-4 py-2  
     border border-blue_border rounded-lg 
+    bg-color_white dark:bg-color_black
     appearance-none 
     focus:outline-none 
     focus:border-border_input 

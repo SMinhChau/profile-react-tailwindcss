@@ -15,3 +15,15 @@
 .menu-item {
   @apply text-title font-semibold hover:text-title_hover;
 }
+
+@layer utilities {
+  .wrapper-logo {
+    @apply relative;
+  }
+}
+@layer utilities {
+  .wrapper-logo a,
+  .wrapper-logo .logo {
+    @apply absolute w-[60px] h-[60px] max-md:w-[36px] max-md:h-[36px];
+  }
+}

@@ -1,6 +1,6 @@
-import Footer from "@/component/footer";
-import Header from "@/component/header";
-import { Outlet } from "react-router-dom";
+import Footer from '@/component/footer';
+import Header from '@/component/header';
+import { Outlet } from 'react-router-dom';
 
 const BaseLayout = () => {
   return (

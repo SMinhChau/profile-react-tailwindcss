@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .wrapper-icon {
+    @apply h-6 w-6 
+     animate-slide-in delay-100 hover:opacity-100 duration-100  cursor-pointer;
+  }
+}
+
+@layer utilities {
+  .icon-theme {
+    @apply h-full w-full text-color_black opacity-20 dark:text-color_white 
+    hover:opacity-100;
+  }
+}

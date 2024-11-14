@@ -37,8 +37,6 @@ const Notification: React.FC<Props> = ({
   onClose,
 }: Props) => {
   const backGroundColor = (type: string) => {
-    console.log('type >>>', type);
-
     let bg = 'bg-bg_normal';
     if (type == ToastTypes.success) {
       bg = 'bg-success_color';

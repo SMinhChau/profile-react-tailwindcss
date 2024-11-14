@@ -18,6 +18,14 @@ export default {
       success_color: '#1d2c23',
       error_color: '#683535',
       warning_color: '#6f7034',
+      color_white: '#ffffff',
+      color_black: '#000000',
+      foreground: {
+        primary: 'var(--color-foreground-primary)',
+      },
+      background: {
+        primary: 'var(--color-background-primary)',
+      },
     },
     keyframes: {
       'slide-in': {
@@ -31,5 +39,5 @@ export default {
   },
 
   plugins: [],
-  darkMode: 'selector',
+  darkMode: 'class',
 };
