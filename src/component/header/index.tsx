@@ -1,12 +1,8 @@
 import React, { useMemo } from 'react';
 import './header.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 import { useWindowSize } from '@/hook/useWindowSize';
 import { SizesScreen } from '@/utils/common';
-
 import { AiOutlineMenu } from 'react-icons/ai';
-import { MdOutlineLightMode, MdOutlineNightlightRound } from 'react-icons/md';
 import ToggleMode from '../common/toggle-mode';
 
 const HeaderMenus = [

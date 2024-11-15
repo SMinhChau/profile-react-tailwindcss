@@ -1,10 +1,10 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import './card-content.css';
 import { formatDateTime } from '@/utils/common';
-import { ExperiencesType } from '@/utils/common';
 import Link from '../common/link';
 import { FaGithub } from 'react-icons/fa';
 import { isToday } from 'date-fns';
+import { ExperiencesType } from '@/utils/content';
 
 type Props = {
   // children?: ReactNode;

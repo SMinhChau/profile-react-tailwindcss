@@ -4,18 +4,18 @@
 
 @layer components {
   .title {
-    @apply w-[70%] md:w-[100%] text-[30px] text-primary_color font-bold;
+    @apply w-[70%] md:w-[100%]  text-[30px] text-title_color dark:text-primary_color font-bold;
   }
   .sub-title {
     @apply text-[30px] text-[#ca8a04] font-bold;
   }
   .first-letter {
-    @apply 2xl:px-[12%] xl:px-[7%] lg:px-[5%] p-0 2xl:text-center xl:text-center lg:text-center  sm:text-justify text-[#737373];
+    @apply 2xl:px-[12%] xl:px-[7%] lg:px-[5%] p-0 2xl:text-center xl:text-center lg:text-center  sm:text-justify;
   }
 }
 
 .exps-description {
-  @apply w-[100%]  lg:w-[70%]  text-justify text-lg text-[#737373];
+  @apply w-[100%]  lg:w-[70%]  text-justify text-lg;
 }
 
 .cards {

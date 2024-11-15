@@ -22,11 +22,6 @@ export const MyExperiences = [
   },
 ];
 
-export const NameRouter = {
-  chau: 'Minh Châu',
-  khang: 'Duy Khang',
-};
-
 export interface PropsTypeNotify {
   type: string;
   message?: string;

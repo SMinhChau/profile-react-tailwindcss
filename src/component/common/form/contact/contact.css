@@ -4,7 +4,7 @@
 
 @layer utilities {
   .form-content {
-    @apply container flex flex-row max-md:flex-col gap-3 
+    @apply container flex flex-row max-md:flex-col gap-3  max-md:gap-5
     mt-6 mx-7 max-lg:mx-0;
   }
 }
@@ -14,31 +14,29 @@
 }
 
 .item-content {
-  @apply flex flex-col basis-[calc(100%_-_40%_-_40px)] gap-3;
+  @apply flex flex-col basis-[calc(100%_-_40%_-_40px)] gap-8;
 }
 
 @layer utilities {
   .form-group {
-    @apply flex flex-col py-4 relative;
+    @apply flex flex-col relative;
   }
 }
 @layer utilities {
   .form-group label {
     @apply absolute text-sm  bg-[transparent] px-1 left-3
-    duration-300 z-10 transform -translate-y-[11px];
+    duration-300 z-10 transform -translate-y-[11px] bg-color_white dark:bg-color_black rounded-sm;
   }
 }
 
 @layer utilities {
   .form-group .input-item {
     @apply block w-full px-4 py-2  
-    border border-blue_border rounded-lg 
+    border border-border_gray rounded-lg 
     bg-color_white dark:bg-color_black
     appearance-none 
     focus:outline-none 
-    focus:border-border_input 
-    focus:shadow-sm 
-    focus:shadow-border_input;
+    focus:border-border_gray_focus dark:focus:border-border_input;
   }
 }
 
@@ -50,7 +48,7 @@
 
 @layer utilities {
   .form-group textarea {
-    @apply max-h-[200px] min-h-[50px];
+    @apply max-h-[200px] min-h-[50px] bg-color_white dark:bg-border_gray rounded-lg px-2;
   }
 }
 
@@ -59,9 +57,6 @@
     @apply h-[50px]  w-full flex items-center justify-end my-4;
   }
   .wrapper-button > button {
-    @apply h-[100%] w-[100px] 
-    border-2 border-solid border-bg_card  
-    duration-150 shadow-sm shadow-[#082f49]  
-    hover:border-[#0f766e] hover:shadow-[#5eead4];
+    @apply h-[100%] w-[100px];
   }
 }

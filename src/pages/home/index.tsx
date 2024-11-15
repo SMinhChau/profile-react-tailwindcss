@@ -1,7 +1,6 @@
 import HomeContent from '@/component/home-content';
 import './home.css';
 import CardContent from '@/component/card-content';
-
 import { useWindowSize } from '@/hook/useWindowSize';
 import { ContactData } from './data';
 import ContactForm from '@/component/common/form/contact';

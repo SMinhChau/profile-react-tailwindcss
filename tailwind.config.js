@@ -5,6 +5,7 @@ export default {
     extend: {},
     colors: {
       blue_border: '#273231',
+      blue_border_dark: '#134e4a',
       title: '#406561',
       title_hover: '#6bb0a8',
       primary_color: '#a5f3fc ',
@@ -20,12 +21,11 @@ export default {
       warning_color: '#6f7034',
       color_white: '#ffffff',
       color_black: '#000000',
-      foreground: {
-        primary: 'var(--color-foreground-primary)',
-      },
-      background: {
-        primary: 'var(--color-background-primary)',
-      },
+      // input
+      border_gray: '#d4d4d4',
+      border_gray_focus: '#737373',
+      // title
+      title_color: '#042f2e',
     },
     keyframes: {
       'slide-in': {

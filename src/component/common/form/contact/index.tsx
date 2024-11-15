@@ -56,7 +56,7 @@ const ContactForm = () => {
             id="message"
             placeholder=" "
             {...register('message')}
-            className="input-item peer"
+            className="input-item peer scroll-y"
           />
 
           <label
@@ -71,7 +71,7 @@ const ContactForm = () => {
         </div>
 
         <div className="wrapper-button">
-          <button type="submit" form={FormContact}>
+          <button type="submit" form={FormContact} className="submit-button">
             Submit
           </button>
         </div>
