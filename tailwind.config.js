@@ -26,6 +26,8 @@ export default {
       border_gray_focus: '#737373',
       // title
       title_color: '#042f2e',
+      mobile_border_gray: '#52525b',
+      mobile_bg_gray: '#94a3b8',
     },
     keyframes: {
       'slide-in': {

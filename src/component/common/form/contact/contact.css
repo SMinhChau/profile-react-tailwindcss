@@ -4,13 +4,17 @@
 
 @layer utilities {
   .form-content {
-    @apply container flex flex-row max-md:flex-col gap-3  max-md:gap-5
+    @apply container flex flex-row max-md:flex-col gap-5  max-md:gap-6
     mt-6 mx-7 max-lg:mx-0;
   }
 }
 
 .item-info {
-  @apply flex flex-col basis-[40%];
+  @apply flex flex-col basis-[40%] items-start justify-start gap-8;
+}
+
+.content-item .label {
+  @apply w-[70px];
 }
 
 .item-content {
@@ -48,7 +52,7 @@
 
 @layer utilities {
   .form-group textarea {
-    @apply max-h-[200px] min-h-[50px] bg-color_white dark:bg-border_gray rounded-lg px-2;
+    @apply max-h-[200px] min-h-[100px] bg-color_white dark:bg-border_gray rounded-lg px-2;
   }
 }
 

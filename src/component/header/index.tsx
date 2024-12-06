@@ -2,8 +2,9 @@ import React, { useMemo } from 'react';
 import './header.css';
 import { useWindowSize } from '@/hook/useWindowSize';
 import { SizesScreen } from '@/utils/common';
-import { AiOutlineMenu } from 'react-icons/ai';
+
 import ToggleMode from '../common/toggle-mode';
+import MobileHeader from './mobile-header';
 
 const HeaderMenus = [
   [1, 'Home', '/#info'],
@@ -34,7 +35,7 @@ const Header: React.FC<Props> = ({ nonNavbar }: Props) => {
             ) : (
               <>
                 <div className="icon-menu" aria-controls="mobile-menu" aria-expanded="false">
-                  <AiOutlineMenu />
+                  <MobileHeader />
                 </div>
               </>
             )}

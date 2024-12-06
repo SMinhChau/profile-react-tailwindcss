@@ -1,4 +1,3 @@
-import React from 'react';
 import './styled.css';
 
 const Info = [
@@ -9,11 +8,11 @@ const Info = [
 
 const ContactInfo = () => {
   return (
-    <div className="info">
+    <div className="contact-information">
       {Info.map((item, index) => (
-        <div key={item.id || index} className="content">
-          <div className="label">{item.label}</div>
-          <div className="value">{item.value}</div>
+        <div key={item.id || index} className="content-item">
+          <div className="contact-label">{item.label}</div>
+          <div className={`contact-value ${item.id === 3 && `email`} `}>{item.value}</div>
         </div>
       ))}
     </div>

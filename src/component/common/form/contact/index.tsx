@@ -1,7 +1,8 @@
 import { useForm } from 'react-hook-form';
 import './contact.css';
-import ContactInfo from '@/component/contact/info';
 import useNotification from '@/hook/useNotification';
+import ContactInfo from '@/component/contact/info';
+import emailjs from 'emailjs-com';
 
 type FormData = {
   username: string;
@@ -11,17 +12,35 @@ type FormData = {
 const FormContact = 'form-contact';
 
 const ContactForm = () => {
-  const { success, error, warning } = useNotification();
+  const { success, error } = useNotification();
   const {
     register,
-    setValue,
     handleSubmit,
-    watch,
+    reset,
     formState: { errors },
   } = useForm<FormData>();
 
-  const onSubmit = (data: FormData) => {
-    console.log('data >>', data);
+  const onSubmit = async (data: FormData) => {
+    SendEmail(data);
+  };
+
+  const SendEmail = (data: FormData) => {
+    emailjs
+      .send(
+        import.meta.env.VITE_EMAIL_SERVICE_ID,
+        import.meta.env.VITE_EMAIL_TEMPLATE_ID,
+        data,
+        import.meta.env.VITE_EMAIL_USER_ID
+      )
+      .then(
+        () => {
+          success('Send success!');
+          reset();
+        },
+        () => {
+          error('Fail!');
+        }
+      );
   };
 
   return (

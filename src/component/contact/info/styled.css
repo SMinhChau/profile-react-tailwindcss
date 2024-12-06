@@ -2,12 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
-.info {
-  @apply container flex flex-col gap-4;
-}
-.content {
-  @apply flex flex-row gap-3;
-}
-.label {
-  @apply flex basis-[100px] capitalize font-semibold text-lg;
+@layer components {
+  .contact-information {
+    @apply w-full flex flex-col gap-2;
+  }
+  .content-item {
+    @apply flex flex-row w-full;
+  }
+  .content-item .contact-label {
+    @apply text-wrap w-[100px] capitalize;
+  }
+  .content-item .contact-value {
+    @apply text-wrap break-all  truncate w-[calc(100%_-_100px)];
+  }
+
+  .content-item .contact-value .email {
+    @apply lowercase;
+  }
 }

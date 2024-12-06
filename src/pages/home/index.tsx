@@ -9,8 +9,6 @@ import { MyExperiences } from '@/utils/content';
 const HomePage = () => {
   const { width } = useWindowSize();
 
-  console.log('width >>', width);
-
   const Experiences = () => {
     return (
       <HomeContent id="experiences">

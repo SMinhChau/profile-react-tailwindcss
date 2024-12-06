@@ -24,11 +24,11 @@ const NotificationProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     const id = Date.now();
     setNotifications((prev: NotifyState) => [...prev, { id, type, message }]);
 
-    // if (duration > 0) {
-    //   setTimeout(() => {
-    //     removeNotification(id);
-    //   }, duration);
-    // }
+    if (duration > 0) {
+      setTimeout(() => {
+        removeNotification(id);
+      }, duration);
+    }
   }, []);
 
   const removeNotification = useCallback((id: number) => {
