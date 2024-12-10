@@ -28,15 +28,22 @@ export default {
       title_color: '#042f2e',
       mobile_border_gray: '#52525b',
       mobile_bg_gray: '#94a3b8',
+      bg_content_mobile: '#f1f5f9',
+      bg_content_mobile_dark: '#111827',
     },
     keyframes: {
       'slide-in': {
         '0%': { transform: 'translateX(100%)', opacity: 0 },
         '100%': { transform: 'translateX(0)', opacity: 1 },
       },
+      'slide-down': {
+        '0%': { transform: 'translate3d(0, -100%, 0)', opacity: 0 },
+        '100%': { transform: 'translate3d(0, 0, 0)', opacity: 1 },
+      },
     },
     animation: {
       'slide-in': 'slide-in 0.3s ease-out',
+      'slide-down': 'slide-down 0.3s ease-out',
     },
   },
 

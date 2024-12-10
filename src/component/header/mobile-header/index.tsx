@@ -1,14 +1,22 @@
 import './mobile-header.css';
 import ToggleMode from '@/component/common/toggle-mode';
+import React from 'react';
 import { AiOutlineMenu } from 'react-icons/ai';
 
-const MobileHeader = () => {
+type Props = {
+  handleMenu: () => void;
+};
+
+const MobileHeader: React.FC<Props> = ({ handleMenu }: Props) => {
   return (
     <div className="wrapper">
       <div className="content">
         <ToggleMode />
       </div>
-      <AiOutlineMenu />
+
+      <button onClick={handleMenu}>
+        <AiOutlineMenu />
+      </button>
     </div>
   );
 };
