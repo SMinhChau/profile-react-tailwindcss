@@ -2,7 +2,6 @@ import HomeContent from '@/component/home-content';
 
 import { useForm } from 'react-hook-form';
 import './styled.css';
-import { BiSolidHandRight } from 'react-icons/bi';
 
 import useNotification from '@/hook/useNotification';
 
@@ -121,14 +120,8 @@ const AddAccount = () => {
 
       <HomeContent id="info">
         <div className="w-full h-full flex justify-center items-center flex-col">
-          <div className="w-[90%]">
-            <a className="content-web" href="/web-mail">
-              <BiSolidHandRight />
-              <span>Tạo tài khoản qua mail từ website online ở đây </span>
-            </a>
-          </div>
           <form
-            className="w-full lg:w-[45%] bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 relative"
+            className="w-full lg:w-[50%] bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 relative"
             onSubmit={handleSubmit(onSubmit)}
             id={FormContact}
           >
