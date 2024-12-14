@@ -176,7 +176,7 @@ const AddAccount = () => {
                 />
               </div>
 
-              <div className="flex flex-col max-lg:flex-row gap-5 ">
+              <div className="flex flex-col md:flex-row gap-7 ">
                 <div className="content-card">
                   <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="character">
                     Bắt đầu từ số - ví dụ: 1
@@ -223,6 +223,8 @@ py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline bg-color_white"
 
         {/* {isLoading && <LoadingScreen />} */}
       </HomeContent>
+
+      <p className="italic relative bottom-6"> Copyright @ 2024 by Chau Nguyen </p>
     </div>
   );
 };
