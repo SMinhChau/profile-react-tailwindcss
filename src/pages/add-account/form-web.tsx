@@ -2,21 +2,19 @@ import HomeContent from '@/component/home-content';
 
 import { useForm } from 'react-hook-form';
 import './styled.css';
-import { BiSolidHandRight } from 'react-icons/bi';
 
 import useNotification from '@/hook/useNotification';
+import { IoArrowBackSharp } from 'react-icons/io5';
+import { useNavigate } from 'react-router-dom';
 
 type FormData = {
   email: string;
   password: string;
-  character: string;
-  start: number;
-  end: number;
 };
 
 const FormContact = 'form-acc';
 
-const AddAccount = () => {
+const AddAccountWeb = () => {
   const { success, error } = useNotification() || { success: () => {}, error: () => {} };
 
   const {
@@ -28,28 +26,27 @@ const AddAccount = () => {
     defaultValues: {
       email: '',
       password: '',
-      character: '',
-      start: 0,
-      end: 0,
     },
   });
+
+  const navigation = useNavigate();
 
   const onSubmit = async (data: FormData) => {
     handleCreate(data);
   };
 
-  const handleCreate = (data: FormData) => {
+  const handleCreate = async (data: FormData) => {
     const params = {
       ...data,
       redirectPath: `https://lansongxanh.1vote.vn/xac-nhan-tai-khoan?registerStatus=1&email=${data.email}`,
     };
 
-    runSequentialCalls(params.email, params.password, params.character, +params.start, params.end);
+    await callApi(params.email, params.password);
   };
 
   // Hàm để gọi API
-  async function callApi(emailUser: string, password: string, str: string, emailIndex: number) {
-    const email = `${emailUser}+${str}${emailIndex}@gmail.com`;
+  async function callApi(emailUser: string, password: string) {
+    const email = emailUser;
     const redirectPath = `https://lansongxanh.1vote.vn/xac-nhan-tai-khoan?registerStatus=1&email=${encodeURIComponent(
       email
     )}`;
@@ -82,34 +79,15 @@ const AddAccount = () => {
         return response.json();
       })
       .then(data => {
-        success(`${data?.message} - Thành công cho vị trí số ${emailIndex}`, 1000);
+        success(`${data?.message}`, 1000);
       })
-      .catch(() => error(`Lỗi cho vị trí ${emailIndex}`, 1000));
+      .catch(() => error(`Lỗi tạo! Vui lòng thử lại!`, 1000));
   }
-
-  // Hàm để tạo delay
-  const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
-  // Hàm gọi API liên tục
-  const runSequentialCalls = async (
-    emailUser: string,
-    password: string,
-    str: string,
-    start: number,
-    end: number
-  ) => {
-    for (let i = start; i <= end; i++) {
-      await callApi(emailUser, password, str, i);
-      await delay(500);
-    }
-  };
 
   const resetFn = () => {
     reset({
       email: '', // Giá trị mặc định mới hoặc để trống nếu không cần
       password: '',
-      character: '',
-      start: 0,
-      end: 0,
     });
   };
   return (
@@ -118,14 +96,13 @@ const AddAccount = () => {
         className="absolute opacity-[0.1] object-contain w-full h-full"
         src="https://lansongxanh.1vote.vn/_next/image?url=https%3A%2F%2Fmedia-platform.1vote.vn%2Fthumbnails%2Fuploads%2FoYbuW%2F1733681700645.jpg&w=1920&q=75"
       />
-
       <HomeContent id="info">
         <div className="w-full h-full flex justify-center items-center flex-col">
           <div className="w-[90%]">
-            <a className="content-web" href="/web-mail">
-              <BiSolidHandRight />
-              <span>Tạo tài khoản qua mail từ website online ở đây </span>
-            </a>
+            <span className="content-back" onClick={() => navigation('/')}>
+              <IoArrowBackSharp />
+              <span>Quay lại</span>
+            </span>
           </div>
           <form
             className="w-full lg:w-[45%] bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 relative"
@@ -140,14 +117,11 @@ const AddAccount = () => {
                 Đề cử Giải thưởng Làn Sóng Xanh 2024: <span>Sơn Tùng M-TP</span>
               </h4>
             </a>
-            <h3 className="title">Tạo tài khoản (phiên bản dùng cho website)</h3>
-            <p>Ví dụ email của mình là: test.vieclam2024@gmail.com</p>
-            <p>Ví dụ: test.vieclam2024+n1@gmail.com</p>
-
+            <h3 className="title">Tạo tài khoản thông qua website online </h3>
             <div className="content-block pt-1">
               <div className="content-card">
                 <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
-                  Email (bỏ @gmail.com)
+                  Nhập Email
                 </label>
                 <input
                   className="shadow appearance-none border rounded w-full p-y-[20px]
@@ -160,7 +134,7 @@ const AddAccount = () => {
               </div>
               <div className="content-card">
                 <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
-                  Mật khẩu
+                  Nhập Mật khẩu
                 </label>
                 <input
                   className="shadow appearance-none border rounded w-full p-y-[20px]
@@ -171,51 +145,7 @@ const AddAccount = () => {
                   {...register('password', { required: true })}
                 />
               </div>
-              <div className="content-card">
-                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="character">
-                  Ký tự
-                </label>
-                <input
-                  className="shadow appearance-none border rounded w-full p-y-[20px]
-            py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline bg-color_white"
-                  id="character"
-                  type="text"
-                  placeholder="Character (ký tự)"
-                  {...register('character', { required: true })}
-                />
-              </div>
-
-              <div className="flex flex-col md:flex-row gap-7 ">
-                <div className="content-card">
-                  <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="character">
-                    Bắt đầu từ số - ví dụ: 1
-                  </label>
-                  <input
-                    className="w-[100px] shadow appearance-none border roundedp-y-[20px]
-            py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline bg-color_white"
-                    id="character"
-                    type="number"
-                    placeholder=" "
-                    {...register('start', { required: true })}
-                  />
-                </div>
-
-                <div className="content-card">
-                  <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="character">
-                    Kết thúc đến số - ví dụ: 10
-                  </label>
-                  <input
-                    className="w-[100px] shadow appearance-none border rounded p-y-[20px]
-py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline bg-color_white"
-                    id="character"
-                    type="number"
-                    placeholder=""
-                    {...register('end', { required: true })}
-                  />
-                </div>
-              </div>
             </div>
-
             <div className="wrapper-button ">
               <button
                 onClick={() => resetFn()}
@@ -238,4 +168,4 @@ py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline bg-color_white"
   );
 };
 
-export default AddAccount;
+export default AddAccountWeb;
