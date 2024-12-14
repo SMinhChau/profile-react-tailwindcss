@@ -133,10 +133,9 @@ const AddAccount = () => {
             </a>
             <h3 className="title">Tạo tài khoản</h3>
             <p>Ví dụ email của mình là: test.vieclam2024@gmail.com</p>
-
             <p>Ví dụ: test.vieclam2024+n1@gmail.com</p>
 
-            <div className="content-block">
+            <div className="content-block pt-1">
               <div className="content-card">
                 <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
                   Email (bỏ @gmail.com)
@@ -159,7 +158,7 @@ const AddAccount = () => {
             py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline bg-color_white"
                   id="password"
                   type="text"
-                  placeholder="Email"
+                  placeholder="Password"
                   {...register('password', { required: true })}
                 />
               </div>

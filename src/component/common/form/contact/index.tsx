@@ -62,7 +62,7 @@ const ContactForm = () => {
             peer-focus:-translate-y-[11px] peer-focus:px-1 
             peer-placeholder-shown:translate-y-[13px]"
           >
-            Email
+            Password
           </label>
         </div>
 
