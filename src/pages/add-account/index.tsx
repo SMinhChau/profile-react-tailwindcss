@@ -97,7 +97,7 @@ const AddAccount = () => {
   ) => {
     for (let i = start; i <= end; i++) {
       await callApi(emailUser, password, str, i);
-      await delay(1000);
+      await delay(500);
     }
   };
 
