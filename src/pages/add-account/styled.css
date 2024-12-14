@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .wrapper-button {
+    @apply h-[50px]  w-full flex items-center justify-between my-4;
+  }
+  .wrapper-button .button-submit {
+    @apply h-[100%] w-[100px] bg-[#2563eb] shadow-md text-color_white hover:shadow-lg text-lg font-bold;
+  }
+}
+@layer utilities {
+  .title {
+    @apply text-xl text-title py-3;
+  }
+}
+@layer utilities {
+  .info {
+    @apply text-xl text-title py-3;
+  }
+}
+@layer utilities {
+  .tag {
+    @apply text-2xl text-title font-bold hover:drop-shadow-lg  cursor-pointer hover:text-bg_card;
+  }
+}
+@layer utilities {
+  .content-block {
+    @apply flex flex-col gap-3;
+  }
+}
+@layer utilities {
+  .content-card {
+    @apply flex flex-col;
+  }
+}

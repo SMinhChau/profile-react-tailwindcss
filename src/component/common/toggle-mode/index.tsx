@@ -34,11 +34,11 @@ const ToggleMode = () => {
   };
 
   return (
-    <div className="wrapper-icon" onClick={handleTheme}>
+    <div className="wrapper-icon">
       {theme === ThemeType.light ? (
-        <MdOutlineNightlightRound className="icon-theme" />
+        <MdOutlineNightlightRound className="icon-theme" onClick={handleTheme} />
       ) : (
-        <MdOutlineLightMode className="icon-theme" />
+        <MdOutlineLightMode className="icon-theme" onClick={handleTheme} />
       )}
     </div>
   );

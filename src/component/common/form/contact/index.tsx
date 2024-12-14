@@ -1,8 +1,9 @@
 import { useForm } from 'react-hook-form';
 import './contact.css';
-import useNotification from '@/hook/useNotification';
+
 import ContactInfo from '@/component/contact/info';
 import emailjs from 'emailjs-com';
+import useNotification from '@/hook/useNotification';
 
 type FormData = {
   username: string;
@@ -12,13 +13,8 @@ type FormData = {
 const FormContact = 'form-contact';
 
 const ContactForm = () => {
-  const { success, error } = useNotification();
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm<FormData>();
+  const { success, error } = useNotification() || { success: () => {}, error: () => {} };
+  const { register, handleSubmit, reset } = useForm<FormData>();
 
   const onSubmit = async (data: FormData) => {
     SendEmail(data);

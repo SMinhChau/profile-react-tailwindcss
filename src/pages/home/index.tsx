@@ -1,14 +1,9 @@
 import HomeContent from '@/component/home-content';
 import './home.css';
-import CardContent from '@/component/card-content';
-import { useWindowSize } from '@/hook/useWindowSize';
 import { ContactData } from './data';
 import ContactForm from '@/component/common/form/contact';
-import { MyExperiences } from '@/utils/content';
 
 const HomePage = () => {
-  const { width } = useWindowSize();
-
   const Experiences = () => {
     return (
       <HomeContent id="experiences">
@@ -23,12 +18,12 @@ const HomePage = () => {
           you can suppress the urge to retch long enough to give it a chance, I really think you’ll
           wonder how you ever worked with CSS any other way.
         </p>
-
+        {/* 
         <div className="cards">
           {MyExperiences.map((item, index) => {
             return <CardContent key={index} item={item} />;
           })}
-        </div>
+        </div> */}
       </HomeContent>
     );
   };
