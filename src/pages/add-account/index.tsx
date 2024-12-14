@@ -81,7 +81,7 @@ const AddAccount = () => {
         return response.json();
       })
       .then(data => {
-        success(`${data?.message} - Thành công cho vị số ${emailIndex}`, 1000);
+        success(`${data?.message} - Thành công cho vị trí số ${emailIndex}`, 1000);
       })
       .catch(() => error(`Lỗi cho vị trí ${emailIndex}`, 1000));
   }
@@ -152,20 +152,20 @@ const AddAccount = () => {
               </div>
               <div className="content-card">
                 <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
-                  Password
+                  Mật khẩu
                 </label>
                 <input
                   className="shadow appearance-none border rounded w-full p-y-[20px]
             py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline bg-color_white"
                   id="password"
                   type="text"
-                  placeholder="Password"
+                  placeholder="Mật khẩu"
                   {...register('password', { required: true })}
                 />
               </div>
               <div className="content-card">
                 <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="character">
-                  Ký tự "n"
+                  Ký tự
                 </label>
                 <input
                   className="shadow appearance-none border rounded w-full p-y-[20px]
