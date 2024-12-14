@@ -132,7 +132,7 @@ const AddAccount = () => {
                 Đề cử Giải thưởng Làn Sóng Xanh 2024: <span>Sơn Tùng M-TP</span>
               </h4>
             </a>
-            <h3 className="title">Tạo tài khoản</h3>
+            <h3 className="title">Tạo tài khoản (phiên bản dùng cho website)</h3>
             <p>Ví dụ email của mình là: test.vieclam2024@gmail.com</p>
             <p>Ví dụ: test.vieclam2024+n1@gmail.com</p>
 
