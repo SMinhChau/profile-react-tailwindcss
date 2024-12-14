@@ -42,7 +42,8 @@ const AddAccount = () => {
       ...data,
       redirectPath: `https://lansongxanh.1vote.vn/xac-nhan-tai-khoan?registerStatus=1&email=${data.email}`,
     };
-    runSequentialCalls(params.email, params.password, params.character, params.start, params.end);
+
+    runSequentialCalls(params.email, params.password, params.character, +params.start, params.end);
   };
 
   // Hàm để gọi API
