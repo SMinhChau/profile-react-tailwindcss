@@ -4,8 +4,6 @@ import { useForm } from 'react-hook-form';
 import './styled.css';
 
 import useNotification from '@/hook/useNotification';
-import { BiSolidHandRight } from 'react-icons/bi';
-import { useNavigate } from 'react-router-dom';
 
 type FormData = {
   email: string;
@@ -19,7 +17,6 @@ const FormContact = 'form-acc';
 
 const AddAccount = () => {
   const { success, error } = useNotification() || { success: () => {}, error: () => {} };
-  const navigation = useNavigate();
 
   const {
     register,
@@ -136,11 +133,6 @@ const AddAccount = () => {
                 Đề cử Giải thưởng Làn Sóng Xanh 2024: <span>Sơn Tùng M-TP</span>
               </h4>
             </a>
-
-            <span className="content-back" onClick={() => navigation('/verify-email')}>
-              <BiSolidHandRight />
-              <span>Xác thực lại mail</span>
-            </span>
             <h3 className="title">Tạo tài khoản (phiên bản dùng cho website)</h3>
             <p>Ví dụ email của mình là: test.vieclam2024@gmail.com</p>
             <p>Ví dụ: test.vieclam2024+n1@gmail.com</p>
