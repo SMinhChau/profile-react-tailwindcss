@@ -48,6 +48,6 @@
 }
 @layer utilities {
   .content-back {
-    @apply flex flex-row gap-1 items-center cursor-pointer absolute  top-[-25px] text-error_color w-full justify-start  hover:drop-shadow-lg;
+    @apply flex flex-row items-center gap-1 cursor-pointer absolute top-[-25px] text-error_color w-full justify-start  hover:drop-shadow-lg;
   }
 }
