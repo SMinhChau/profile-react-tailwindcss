@@ -45,3 +45,20 @@
     @apply flex flex-row relative right-1 items-center gap-1 cursor-pointer text-error_color w-full justify-start  hover:drop-shadow-lg;
   }
 }
+
+@layer utilities {
+  .wrapper-back {
+    @apply flex items-center justify-center w-full;
+  }
+}
+
+@layer utilities {
+  .content-web {
+    @apply flex flex-row relative  right-0 items-center gap-1 cursor-pointer text-error_color w-full justify-start  hover:drop-shadow-lg;
+  }
+}
+@layer utilities {
+  .content-back {
+    @apply flex flex-row gap-1 cursor-pointer absolute left-[-20%] text-error_color w-full justify-start  hover:drop-shadow-lg;
+  }
+}

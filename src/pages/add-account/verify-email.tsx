@@ -4,23 +4,23 @@ import { useForm } from 'react-hook-form';
 import './styled.css';
 
 import useNotification from '@/hook/useNotification';
-import { BiSolidHandRight } from 'react-icons/bi';
 import { useNavigate } from 'react-router-dom';
+import { IoArrowBackSharp } from 'react-icons/io5';
 
 type FormData = {
   email: string;
-  password: string;
+
   character: string;
   start: number;
   end: number;
 };
 
-const FormContact = 'form-acc';
+const FormContact = 'form-verify';
 
-const AddAccount = () => {
+const AddAccountVerifyEmail = () => {
   const { success, error } = useNotification() || { success: () => {}, error: () => {} };
-  const navigation = useNavigate();
 
+  const navigation = useNavigate();
   const {
     register,
     handleSubmit,
@@ -29,7 +29,7 @@ const AddAccount = () => {
   } = useForm<FormData>({
     defaultValues: {
       email: '',
-      password: '',
+
       character: '',
       start: 0,
       end: 0,
@@ -46,24 +46,19 @@ const AddAccount = () => {
       redirectPath: `https://lansongxanh.1vote.vn/xac-nhan-tai-khoan?registerStatus=1&email=${data.email}`,
     };
 
-    runSequentialCalls(params.email, params.password, params.character, +params.start, params.end);
+    runSequentialCalls(params.email, params.character, +params.start, params.end);
   };
 
   // Hàm để gọi API
-  async function callApi(emailUser: string, password: string, str: string, emailIndex: number) {
+  async function callApi(emailUser: string, str: string, emailIndex: number) {
     const email = `${emailUser}+${str}${emailIndex}@gmail.com`;
-    const redirectPath = `https://lansongxanh.1vote.vn/xac-nhan-tai-khoan?registerStatus=1&email=${encodeURIComponent(
-      email
-    )}`;
 
     const body = {
       email: email,
-      password: password,
-      redirectPath: redirectPath,
     };
 
-    fetch('https://eventista-platform-api.1vote.vn/v1/client/auth/register', {
-      method: 'POST',
+    fetch('https://eventista-platform-api.1vote.vn/v1/client/auth/email-verification', {
+      method: 'PUT',
       headers: {
         accept: 'application/json',
         'accept-language': 'vi-VN,vi;q=0.9,en-US;q=0.8,en;q=0.7,fr-FR;q=0.6,fr;q=0.5',
@@ -84,7 +79,7 @@ const AddAccount = () => {
         return response.json();
       })
       .then(data => {
-        success(`${data?.message} - Thành công cho vị trí số ${emailIndex}`, 1000);
+        success(`${data?.message} - Gửi xác thực cho vị trí ${emailIndex}`, 1000);
       })
       .catch(() => error(`Lỗi cho vị trí ${emailIndex}`, 1000));
   }
@@ -94,13 +89,13 @@ const AddAccount = () => {
   // Hàm gọi API liên tục
   const runSequentialCalls = async (
     emailUser: string,
-    password: string,
+
     str: string,
     start: number,
     end: number
   ) => {
     for (let i = start; i <= end; i++) {
-      await callApi(emailUser, password, str, i);
+      await callApi(emailUser, str, i);
       await delay(500);
     }
   };
@@ -108,7 +103,6 @@ const AddAccount = () => {
   const resetFn = () => {
     reset({
       email: '', // Giá trị mặc định mới hoặc để trống nếu không cần
-      password: '',
       character: '',
       start: 0,
       end: 0,
@@ -136,19 +130,16 @@ const AddAccount = () => {
                 Đề cử Giải thưởng Làn Sóng Xanh 2024: <span>Sơn Tùng M-TP</span>
               </h4>
             </a>
-
-            <span className="content-back" onClick={() => navigation('/verify-email')}>
-              <BiSolidHandRight />
-              <span>Xác thực lại mail</span>
+            <span className="content-back " onClick={() => navigation('/')}>
+              <IoArrowBackSharp />
+              <span>Quay lại</span>
             </span>
-            <h3 className="title">Tạo tài khoản (phiên bản dùng cho website)</h3>
-            <p>Ví dụ email của mình là: test.vieclam2024@gmail.com</p>
-            <p>Ví dụ: test.vieclam2024+n1@gmail.com</p>
+            <h3 className="title">Lấy lại mật khẩu</h3>
 
             <div className="content-block pt-1">
               <div className="content-card">
                 <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
-                  Email (bỏ @gmail.com)
+                  Email
                 </label>
                 <input
                   className="shadow appearance-none border rounded w-full p-y-[20px]
@@ -159,19 +150,7 @@ const AddAccount = () => {
                   {...register('email', { required: true })}
                 />
               </div>
-              <div className="content-card">
-                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
-                  Mật khẩu
-                </label>
-                <input
-                  className="shadow appearance-none border rounded w-full p-y-[20px]
-            py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline bg-color_white"
-                  id="password"
-                  type="text"
-                  placeholder="Mật khẩu"
-                  {...register('password', { required: true })}
-                />
-              </div>
+
               <div className="content-card">
                 <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="character">
                   Ký tự
@@ -239,4 +218,4 @@ py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline bg-color_white"
   );
 };
 
-export default AddAccount;
+export default AddAccountVerifyEmail;
