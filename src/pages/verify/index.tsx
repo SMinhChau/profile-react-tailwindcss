@@ -43,7 +43,7 @@ const VerifyEmail = () => {
   const handleCreate = (data: FormData) => {
     const params = {
       ...data,
-      redirectPath: `https://lansongxanh.1vote.vn/xac-nhan-tai-khoan?registerStatus=1&email=${data.email}`,
+      redirectPath: `https://maleiconawards.1vote.vn/xac-nhan-tai-khoan?registerStatus=1&email=${data.email}`,
     };
 
     runSequentialCalls(params.email, params.character, +params.start, params.end);
@@ -64,8 +64,8 @@ const VerifyEmail = () => {
         'accept-language': 'vi-VN,vi;q=0.9,en-US;q=0.8,en;q=0.7,fr-FR;q=0.6,fr;q=0.5',
         'content-type': 'application/json',
         lang: 'vi',
-        origin: 'https://lansongxanh.1vote.vn',
-        referer: 'https://lansongxanh.1vote.vn/',
+        origin: 'https://maleiconawards.1vote.vn',
+        referer: 'https://maleiconawards.1vote.vn/',
         'user-agent':
           'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
       },
@@ -112,7 +112,7 @@ const VerifyEmail = () => {
     <div className="relative">
       <img
         className="absolute opacity-[0.1] object-contain w-full h-full"
-        src="https://lansongxanh.1vote.vn/_next/image?url=https%3A%2F%2Fmedia-platform.1vote.vn%2Fthumbnails%2Fuploads%2FoYbuW%2F1733681700645.jpg&w=1920&q=75"
+        src="https://maleiconawards.1vote.vn/_next/image?url=https%3A%2F%2Fmedia-platform.1vote.vn%2Fthumbnails%2Fuploads%2FoYbuW%2F1733681700645.jpg&w=1920&q=75"
       />
 
       <HomeContent id="info">
@@ -124,7 +124,7 @@ const VerifyEmail = () => {
           >
             <a
               target="_blank"
-              href="https://lansongxanh.1vote.vn/de-cu/namcasirapperduocyeuthich/son-tung-m-tp-046"
+              href="https://maleiconawards.1vote.vn/de-cu/namcasirapperduocyeuthich/son-tung-m-tp-046"
             >
               <h4 className="tag">
                 Đề cử Giải thưởng Làn Sóng Xanh 2024: <span>Sơn Tùng M-TP</span>
